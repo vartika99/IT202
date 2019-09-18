@@ -23,7 +23,7 @@ try{
 	$insert_query = "INSERT INTO `TestUsers`( `username`, `pin`) VALUES ('JohnDoe', 1234)";
 	$stmt = $db->prepare($insert_query);
 	$r = $stmt->execute();
-
+	print_r($stmt->errorInfo());
 	echo "<br>" . ($r>0?"Insert successful":"Insert failed") . "<br>";
 }
 catch(Exception $e){
