@@ -20,9 +20,12 @@ try{
 	echo "<br>" . ($r>0?"Created table or already exists":"Failed to create table") . "<br>";
 	unset($r);
 
-	$insert_query = "INSERT INTO `TestUsers`( `username`, `pin`) VALUES ('JohnDoe', 1234)";
+	$insert_query = "INSERT INTO `TestUsers`( `username`, `pin`) VALUES (:username, :pin)";
 	$stmt = $db->prepare($insert_query);
-	$r = $stmt->execute();
+	$newUser = "Billy";
+	$newPin = 1234;
+	$r = $stmt->execute(array(":username"=> $newUser, ":pin"=>$newPin));
+
 	print_r($stmt->errorInfo());
 	echo "<br>" . ($r>0?"Insert successful":"Insert failed") . "<br>";
 }
