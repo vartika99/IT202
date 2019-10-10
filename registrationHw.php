@@ -56,15 +56,12 @@ function validate(){
         some other value is selected in order to proceed
         */
         var select = form.dropdown;
- var span = document.getElementById("validation.select");
-        if (select.selectedIndex == 0){
-                span.innerText = "please choose a field";
-                succeeded = false;
-}
-        else {
-                span.innerText = "";
-}
-        return succeeded;
+        var index = select.selectedIndex;
+        var value = select.options[index].value;
+        if(value == "Select One"){
+                alert("Please select another value");
+                return false;
+    }
 }
 </script>
 <style>
