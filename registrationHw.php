@@ -59,7 +59,7 @@ function validate(){
         var index = select.selectedIndex;
         var value = select.options[index].value;
         if(value == "Select One"){
-                alert("Please select another value");
+                alert("Please select a valid option");
                 return false;
     }
 }
