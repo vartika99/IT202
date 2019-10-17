@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+aside {border: 1px solid peachpuff; padding: 0.75%;}
+</style>
+<script>
+	function queryParam(){
+		var params = new URLSearchParams(location.search);
+		if(params.has('page')){
+			var page = params.get('page');
+			var ele = document.getElementById(page);
+			if(ele){
+				let home = document.getElementById('home');
+				let about = document.getElementById('about');
+				home.style.display="none";
+				about.style.display = "none";
+				ele.style.display = "block";
+			}
+		}
+		else{
+			let home = document.getElementById('home');
+			home.style.display = "block";
+		}
+	}
+</script>
+</head>
+<body onload="queryParam();">
+	<header>
+		<nav>
+            <!--Create route for Home-->
+            <a href="?page=home">Home</a>
+            <!--Create route for About-->
+            <a href="?page=about">About</a>
+		</nav>
+    </header>
+
+    <div id="home">
+		This is home
+	</div>
+
+    <div id="about">
+		<!-- About page using HTML5 Semantics-->
+		<header>
+			<h2>Users can give their portfolios a name and it would appear here.</h2>
+		</header>
+		<article>
+			<p>Users can describe what type of portfolios they are going to upload (i.e., personal or professional)</p>
+			<p>An example of a random image is shown below</p>
+		</article>
+		<figure>
+			<img src="venice.jpg" alt="venice, italy" style="width:50%">
+			<figcaption>Venice, Italy</figcaption>
+		</figure>
+		<aside>
+			<p>Mentions what type of device/equipment was used to take the pictures.
+				An example would be:</p>
+			<p><small>Photo taken on Nikon Z6.</small></p>
+
+		</aside>
+		<footer>
+				<p><h4>Contact Us section</h4>
+				This is where users can find out how to contact us.</p>
+		</footer>
+
+	</div>
+	<footer></footer>
+</body>
+</html>
