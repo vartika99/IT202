@@ -1,129 +1,341 @@
-<?php
-ini_set('display_errors',1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-function checkPasswords(){
-        if(isset($_POST['password']) && isset($_POST['confirm'])){
-                if($_POST['password'] == $_POST['confirm']){
-                        echo "<br>Passwords Matched!<br>";
-                }
-                else{
-                        echo "<br>Passwords didn't match!<br>";
-                }
-        }
-}
-?>
 <html>
+
 <head>
+
 <script>
-function validate(){
-        var form = document.forms[0];
-        
-        var password = form.password.value;
-        var conf = form.confirm.value;
-        console.log(password);
-        console.log(conf);
-        let pv = document.getElementById("validation.password");
-        let succeeded = true;
 
-        if(password == conf){
-                pv.style.display = "none";
-                form.confirm.className= "noerror";
-        }
-        else {
-                pv.style.display = "block";
-                pv.innerText = "Passwords don't match";
-                //form.confirm.focus();
-                form.confirm.className = "error";
-                //form.confirm.style = "border: 1px solid red;";
-                succeeded = false;
-        }
-        
-	var email = form.email.value;
-        var ev = document.getElementById("validation.email");
-        var eConfirm = form.eConfirm.value
-        console.log(email);
-        console.log(eConfirm);
+function isEmpty(v){
+
+ return (v.trim().length == 0);
+
+}
 
 
-        
-        if(email == "" || eConfirm == "") {
-                ev.style.display = 'block';
-                ev.innerText = "please enter an email address";
-                succeeded = false;
-        }
-        else {
-                ev.style.display = "none";
-                form.eConfirm.className = "noerror"
+
+function isEmail(inputEle){
+
+	if(inputEle.type == "email"){
+
+		return inputEle.value.indexOf('@') > -1;
+
 	}
 
-        if(email.indexOf('@') > -1){
-                ev.style.display = "none";
-        }
-        else {
-		ev.style.display = "block";
-                ev.innerText = "please enter a valid email address";
-                succeeded = false;
-        }
 
-        if(email == eConfirm) {
-                ev.style.display = 'none';
-        }
-        else {
-                ev.style.display = 'block';
-                ev.innerText = "emails do not match. please verify your email again";
-                form.confirm.className = "error";
-                succeeded = false;
-        }
 
- //check if the username field is empty or not
-        var username = form.username.value;
-        var uv = document.getElementById("validation.username");
-        console.log(username);
-        if(username == "") {
-                uv.style.display = 'block';
-                uv.innerText = "username field cannot be empty. please enter a  username";
-                succeeded false;
-        }
-        else {
-                uv.style.display = 'none';
-        }
-        return succeeded;
+	return true;
+
+
+
 }
+
+function myValidation(inputEle, emailValidation){
+
+	var isValid = true;
+
+    if(emailValidation.length > 0) {
+
+        let other = document.forms[0][emailValidation]
+
+        let email = inputEle.value;
+
+        let emailconf = other.value;
+
+        if (isEmpty(email)) {
+
+            isValid = false;
+
+            console.log("email cannot be empty");
+
+        }
+
+	if (isEmpty(emailconf)) {
+
+            isValid = false;
+
+            console.log("email confirmation cannot be empty");
+
+        }
+
+
+
+        if (email != emailconf) {
+
+            isValid = false;
+
+            console.log("emails do not match");
+
+	    alert("emails don't match");
+
+        }
+
+        if (!isEmail(inputEle)) {
+
+            isValid = false;
+
+            console.log("invalid email in the first field");
+
+        }
+
+        if (!isEmail(other)) {
+
+            isValid = false;
+
+            console.log("invalid email in the second field");
+
+        }
+
+    }
+
+    else {
+
+        let v = inputEle.value;
+
+        if (isEmpty(v)) {
+
+            isValid = false;
+
+            console.log("value is empty (else)");
+
+	    
+
+        }
+
+        if (!isEmail(inputEle)) {
+
+            isValid = false;
+
+            console.log("input is not valid email (else)");
+
+            alert("input is not a valid email");
+
+
+
+        }
+
+    }
+
+}
+
+
+
+function isPass(inputpass){
+
+	if(inputEle.type == ""){
+
+	}
+
+
+
+    return true;
+
+}
+
+
+
+function myPassValidation(inputPass, passValidation){
+
+	var isValid = true;
+
+    if(passValidation.length > 0) {
+
+        let other = document.forms[0][passValidation]
+
+        let pass = inputPass.value;
+
+        let passconf = other.value;
+
+        if (isEmpty(pass)) {
+
+            isValid = false;
+
+            console.log("password cannot be empty");
+
+        
+
+        }
+
+        if (isEmpty(passconf)) {
+
+            isValid = false;
+
+            console.log("confirm password cannot be empty");
+
+        
+
+        }
+
+        if (pass != passconf) {
+
+            isValid = false;
+
+            console.log("passwords do not match");
+
+            alert("passwords don't match");
+
+
+
+        }
+
+        if (!isPass(inputPass)) {
+
+            isValid = false;
+
+            console.log("invalid password in the first field");
+
+        }
+
+        if (!isPass(other)) {
+
+            isValid = false;
+
+            console.log("invalid password in the second field");
+
+        }
+
+    }
+
+    else {
+
+        let v = inputPass.value;
+
+        if (isEmpty(v)) {
+
+            isValid = false;
+
+            console.log("value is empty (else)");
+
+            alert("password field can't be empty");
+
+        }
+
+        if (!isPass(inputPass)) {
+
+            isValid = false;
+
+            console.log("input is not a valid password (else)");
+
+            alert("input is not a valid password");
+
+        }
+
+    }
+
+}
+
+
+
+function isUser(inputUser){
+
+	if(inputUser.type == ""){
+
+	}
+
+
+
+    return true;
+
+}
+
+
+
+function myUserValidation(inputUser, userValidation){
+
+	var isValid = true;
+
+    if(userValidation.length > 0) {
+
+        let other = document.forms[0][userValidation]
+
+        let user = inputuser.value;
+
+        if (isEmpty(user)) {
+
+            isValid = false;
+
+            console.log("username field cannot be empty");
+
+        
+
+        }
+
+        
+
+        if (!isUser(inputUser)) {
+
+            isValid = false;
+
+            console.log("invalid username in the field");
+
+        }
+
+    }
+
+    else {
+
+        let v = inputUser.value;
+
+        if (isEmpty(v)) {
+
+            isValid = false;
+
+            console.log("value is empty (else)");
+
+            alert("username field can't be empty");
+
+        }
+
+        if (!isUser(inputUser)) {
+
+            isValid = false;
+
+            console.log("input is not a valid username (else)");
+
+            alert("input is not a valid username");
+
+        }
+
+    }
+
+}
+
+
+
 </script>
-<style>
-input { border: 1px solid black; }
-.error {border: 1px solid red;}
-.noerror {border: 1px solid black;}
-</style>
+
 </head>
 
+
+
 <body>
-<div style="margin-left: 50%; margin-right:50%;">
-<form method="POST" action="#" onsubmit="return validate();">
-<input username="username" type="text" placeholder="enter a username"/>
-<span style="display:none;" id="validation.username"></span>
 
-<input name="email" type="email" placeholder="name@example.com"/>
-<input name="eConfirm" type="email" placeholder="confirm email"/>
-<span id="validation.email" style="display:none;"></span>
+<form onsubmit="return false;">
 
-<input type="password" name="password" placeholder="enter a password"/>
-<input type="password" name="confirm" placeholder="re-enter your password"/>
-<span style="display:none;" id="validation.password"></span>
+<input type="text" name="username" placeholder="username"
 
-<!-- Add dropdown element (something specific to your project) -->
-<input type="submit" value="submit"
-	onsubmit= "validate(); return CheckPasswords()"/>
+        onchange="myUserValidation(this, '');"/>
+
+<input type="email" name="email" placeholder="email"
+
+	onchange="myValidation(this, '');"
+
+/>
+
+<input type="email" name="confirmemail" placeholder="confirm email"
+
+	onchange="myValidation(this,'email');"/>
+
+<input type="password" name="password" placeholder="password"
+
+	onchange="myPassValidation(this, '');" />
+
+<input type="password" name="confirmpassword" placeholder="confirm password"
+
+	onchange="myPassValidation(this, 'password');"/>
+
+<input type="submit" value="submit"/>
+
 </form>
-</div>
+
 </body>
+
 </html>
-<?php checkPasswords();?>
-<?php
-if(isset($_POST)){
-        echo "<br><pre>" . var_export($_POST, true) . "</pre><br>";
-}
-?>
-
-
