@@ -10,7 +10,7 @@ $conn_string = "mysql:host=$host;dbname=$database;charset=utf8mb4";
 
 try {
     $db = new PDO($conn_string, $username, $password);
-    echo "connected";
+    echo " connected";
    
     $query = "create table if not exists `LoginPage` (
         `username` varchar(20) not null unique,
