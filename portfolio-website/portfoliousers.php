@@ -8,10 +8,9 @@ require('config.php');
 
 $conn_string = "mysql:host=$host;dbname=$database;charset=utf8mb4";
 
-$db = new PDO($conn_string, $username, $passoword);
 
 try {
-    foreach(glob("sql/*.sql") as $filename) {
+    foreach(glob("*.sql") as $filename) {
         $sql[$filename] = file_get_contents($filename);
     }
     if(isset($sql)) {
@@ -19,10 +18,11 @@ try {
     }
     echo "<br><pre>" . var_export($sql, true) . "</pre><br>";
 
+    $db = new PDO($conn_string, $username, $password);
 
     foreach($sql as $key => $value) {
         echo "<br>running: " . $key;
-        $stmt = $db->prepare($query);
+        $stmt = $db->prepare($value);
         $result = $stmt->execute();
         $error = $stmt->errorInfo();
         if($error && $error[0] !== '00000') {
@@ -34,7 +34,7 @@ try {
 }
 catch(Exception $e) {
     echo $e->getMessage();
-    exit("something went wrong")
+    exit("something went wrong");
 }
 ?>
 
