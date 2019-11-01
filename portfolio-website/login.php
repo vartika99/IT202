@@ -62,7 +62,7 @@ input { border: 1px solid black; }
 </style>
 
 <form method="POST">
-username: <input name="name" type="text" required/> <br> <br>
+username: <input name="username" type="text" required/> <br> <br>
 password: <input type="password" name="password" required/> <br> <br>
 <input type="submit" value="login"/>
 </form>
