@@ -6,6 +6,8 @@ error_reporting(E_ALL);
 function verifyLogin() {
 
 	echo "hi";
+	echo var_export($_POST, true);
+
 
         if(isset($_POST['username']) && isset($_POST['password'])) {
         $login_username = $_POST['username'];
