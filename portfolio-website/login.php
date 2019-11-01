@@ -6,6 +6,9 @@ error_reporting(E_ALL);
 function verifyLogin() {
         if(isset($_POST['username']) && isset($_POST['password'])) {
         $login_username = $_POST['username'];
+
+	echo "123";
+
         require("config.php");
 
 	echo "idk";	
@@ -60,7 +63,13 @@ password: <input type="password" name="password" required/> <br> <br>
 </form>
 
 <?php
+    
+    echo "321";
+
     verifyLogin();
+
+    echo "222";
+
 ?>
 
 </body>
