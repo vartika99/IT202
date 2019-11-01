@@ -10,10 +10,10 @@ function verifyLogin() {
 	$conn_string = "mysql:host=$host;dbname=$database;charset=utf8mb4";
         $db = new PDO($conn_string, $host, $database, $username, $password);
         $select_query = "select password from `LoginPage` where username=:username";
-        $stmt->db->prepare($select_query);
+        $stmt->$db->prepare($select_query);
         $stmt->bindParam(':username', $login_username);
         $stmt->execute();
-	print_response($stmt->errorInfo());
+	print_r($stmt->errorInfo());
         $response = $stmt->fetch(PDO::ASSOC);
 	if($_POST['password'] == $response['password']) {
         	echo "successful login";
