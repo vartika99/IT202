@@ -13,8 +13,9 @@ function verifyLogin() {
         $stmt->db->prepare($select_query);
         $stmt->bindParam(':username', $login_username);
         $stmt->execute();
+	print_response($stmt->errorInfo());
         $response = $stmt->fetch(PDO::ASSOC);
-	if($password == $response['password']) {
+	if($_POST['password'] == $response['password']) {
         	echo "successful login";
     }
 	else {
@@ -43,12 +44,11 @@ input { border: 1px solid black; }
 username: <input name="name" type="text" required/> <br> <br>
 password: <input type="password" name="password" required/> <br> <br>
 <input type="submit" value="login"/>
-
+</form>
 
 <?php
     verifyLogin();
 ?>
 
-</form>
 </body>
 </html>
