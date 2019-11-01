@@ -4,46 +4,25 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 function verifyLogin() {
-
-	echo "hi";
-	echo var_export($_POST, true);
-
-
         if(isset($_POST['username']) && isset($_POST['password'])) {
-        $login_username = $_POST['username'];
+		$login_username = $_POST['username'];
+        	require("config.php");
+		$conn_string = "mysql:host=$host;dbname=$database;charset=utf8mb4";
+        	$db = new PDO($conn_string, $username, $password);
+        	$select_query = "select password from `LoginPage` where username=:username";
+        	$stmt = $db->prepare($select_query);
+        	$stmt->bindParam(':username', $login_username);
+        	$stmt->execute();
+		//print_r($stmt->errorInfo());
+        	$response = $stmt->fetch();
 
-	echo "123";
-
-        require("config.php");
-
-	echo "idk";	
-
-	$conn_string = "mysql:host=$host;dbname=$database;charset=utf8mb4";
-        $db = new PDO($conn_string, $host, $database, $username, $password);
-        $select_query = "select password from `LoginPage` where username=:username";
-
-	echo "idk2";
-	
-        $stmt = $db->prepare($select_query);
-        $stmt->bindParam(':username', $login_username);
-        $stmt->execute();
-
-        echo "blah";
-
-	print_r($stmt->errorInfo());
-        $response = $stmt->fetch(PDO::ASSOC);
-
-	echo "blah2";	
-
-	if($_POST['password'] == $response['password']) {
-        	echo "successful login";
-    }
-
-	else {
-        	echo "invalid username/password";
-    }
-
-    }
+		if($_POST['password'] == $response['password']) {
+		        echo "hello, " . var_export($_POST['username'], true);
+    		}
+		else {
+        		echo "invalid username/password";
+    		}
+    	}
 }
 
 ?>
@@ -68,13 +47,7 @@ password: <input type="password" name="password" required/> <br> <br>
 </form>
 
 <?php
-    
-    echo "321";
-
     verifyLogin();
-
-    echo "222";
-
 ?>
 
 </body>
