@@ -7,17 +7,30 @@ function verifyLogin() {
         if(isset($_POST['username']) && isset($_POST['password'])) {
         $login_username = $_POST['username'];
         require("config.php");
+
+	echo "idk";	
+
 	$conn_string = "mysql:host=$host;dbname=$database;charset=utf8mb4";
         $db = new PDO($conn_string, $host, $database, $username, $password);
         $select_query = "select password from `LoginPage` where username=:username";
+
+	echo "idk2";
+	
         $stmt = $db->prepare($select_query);
         $stmt->bindParam(':username', $login_username);
         $stmt->execute();
+
+        echo "blah";
+
 	print_r($stmt->errorInfo());
         $response = $stmt->fetch(PDO::ASSOC);
+
+	echo "blah2";	
+
 	if($_POST['password'] == $response['password']) {
         	echo "successful login";
     }
+
 	else {
         	echo "invalid username/password";
     }
@@ -40,7 +53,7 @@ input { border: 1px solid black; }
 .noerror {border: 1px solid black;}
 </style>
 
-<form method="POST" action="#">
+<form method="POST">
 username: <input name="name" type="text" required/> <br> <br>
 password: <input type="password" name="password" required/> <br> <br>
 <input type="submit" value="login"/>
