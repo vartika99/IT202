@@ -4,6 +4,9 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 function verifyLogin() {
+
+	echo "hi";
+
         if(isset($_POST['username']) && isset($_POST['password'])) {
         $login_username = $_POST['username'];
 
