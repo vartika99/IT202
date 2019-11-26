@@ -28,8 +28,7 @@ function queryParam(){
 <h3> V&V Portfolio <h3>
 
 <body>
-Welcome back, <?php echo $_SESSION['user']['name'];
-echo var_export($_SESSION, true); ?>
+Welcome back, <?php echo $_SESSION['user']['name'];?>
 </body>
 
 <body onload="queryParam();">
