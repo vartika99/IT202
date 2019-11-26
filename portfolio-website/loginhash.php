@@ -12,7 +12,7 @@ function verifyLogin() {
         	require("config.php");
 		$conn_string = "mysql:host=$host;dbname=$database;charset=utf8mb4";
         	$db = new PDO($conn_string, $username, $password);
-        	$select_query = "select password from `LoginPage` where username=:username";
+        	$select_query = "select username, password from `LoginPage` where username=:username";
         	$stmt = $db->prepare($select_query);
         	$stmt->bindParam(':username', $login_username);
         	$stmt->execute();
@@ -23,8 +23,9 @@ function verifyLogin() {
 				//$hash = password_hash($pass, PASSWORD_BCRYPT);
 				if(password_verify($pass, $response['password'])){
 					echo "Welcome, " . $response['username'];
+                                        echo "[" . $response['username'] . "]";
 					$login_username = array("username"=> $response['username']);
-					$_SESSION['user'] = $login_username;
+					$_SESSION["user"]["username"] = $login_username;
 					//echo var_export($login_username, true);
 					//echo var_export($_SESSION, true);
 					header("Location: home.php");
