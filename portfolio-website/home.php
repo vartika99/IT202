@@ -37,7 +37,7 @@ echo var_export($_SESSION, true); ?>
         <nav> <center>
             <a href="?page=portfolio">Portfolio</a>
             <a href="?page=about">About Us</a>
-            <a href="https://web.njit.edu/~vbp42/IT202/portfolio-website/createnew.html">Create New Portfolio </a>
+            <a href="createnew.html">Create New Portfolio </a>
         </nav>
     </header> <br>
 
@@ -45,7 +45,7 @@ echo var_export($_SESSION, true); ?>
     <div id="portfolio">
         <center> <img src="alyssa.jpg" alt="alyssa" style="width:45%"> </center>
         <br>
-        <center> <img src="flowers.jpg" alt="flowers" style="width:45%"> </center>
+        <center> <img src="flower.jpg" alt="flower" style="width:45%"> </center>
         <br>
         <center> <img src="beach.jpg" alt="beach" style="width:45%"> </center>
         <br>
