@@ -26,29 +26,34 @@ function verifyLogin() {
 }
 
 ?>
+
 <!DOCTYPE html>
 <html>
-<head>
+
+       <center> <h2> Welcome to V&V Portfolio!</h2> <center>
 
 <body>
-	<h2>V&V Portfolio</h2>
-</body>
+
+<header>
+    <nav>
+        <a href="https://web.njit.edu/~vbp39/IT-202/IT202/portfolio-website/registration.php">Register</a>
+        <a href="https://web.njit.edu/~vbp42/IT202/portfolio-website/loginhash.php">Login</a> <br> <br>
+    </nav>
+</header>
 
 <style>
 input { border: 1px solid black; }
 .error {border: 1px solid red;}
 .noerror {border: 1px solid black;}
 </style>
-
 <form method="POST">
-username: <input name="username" type="text" required/> <br> <br>
-password: <input type="password" name="password" required/> <br> <br>
+username: <br> <input name="username" type="text" required/> <br>
+password: <br> <input type="password" name="password" required/> <br> <br>
 <input type="submit" value="login"/>
 </form>
-
 <?php
     verifyLogin();
 ?>
-
 </body>
 </html>
+
