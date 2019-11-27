@@ -65,8 +65,8 @@ input { border: 1px solid black; }
 <center> <body bgcolor="#e3def8">
 	<header>
 		<nav>
-			<a href="https://web.njit.edu/~vbp39/IT-202/IT202/portfolio-website/registration.php">Register</a>
-                	<a href="https://web.njit.edu/~vbp42/IT202/portfolio-website/loginhash.php">Login</a> <br> <br>
+			<a href="registration.php">Register</a>
+                	<a href="loginhash.php">Login</a> <br> <br>
                 </nav>
         </header>
         <div id="register">
