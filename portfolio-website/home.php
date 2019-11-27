@@ -28,7 +28,8 @@ function queryParam(){
 <h3> V&V Portfolio <h3>
 
 <body>
-Welcome back, <?php echo $_SESSION['user']['name'];?>
+Welcome back, <?php $user = $_SESSION["user"],
+echo $_SESSION["user"]["username"];?>
 </body>
 
 <body onload="queryParam();">
