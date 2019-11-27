@@ -22,23 +22,19 @@ function verifyLogin() {
                 if($response && count($response) > 0){
                                 //$hash = password_hash($pass, PASSWORD_BCRYPT);
                                 if(password_verify($pass, $response['password'])){
-                                        echo "Welcome, " . $response['username'];
+                                        echo "invalid username/password";
                                         echo "[" . $response['username'] . "]";
                                         $login_username = array("username"=> $response['username']);
                                         $_SESSION["user"] = $login_username;
                                         //echo var_export($login_username, true);
                                         //echo var_export($_SESSION, true);
                                         header("Location: home.php");
-
                                 }
-
-                echo "hello, " . var_export($_POST['username'], true);
-            }
-
-                else {
-                        echo "invalid username/password";
-                }
-        }
+                		else {
+                        		echo "invalid username/password";
+                		}
+        	}
+	}
 }
 ?>
 <!DOCTYPE html>
