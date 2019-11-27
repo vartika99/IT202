@@ -25,7 +25,7 @@ function verifyLogin() {
                                         echo "Welcome, " . $response['username'];
                                         echo "[" . $response['username'] . "]";
                                         $login_username = array("username"=> $response['username']);
-                                        $_SESSION["user"]["username"] = $login_username;
+                                        $_SESSION["user"] = $login_username;
                                         //echo var_export($login_username, true);
                                         //echo var_export($_SESSION, true);
                                         header("Location: home.php");
