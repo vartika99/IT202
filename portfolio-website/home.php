@@ -37,6 +37,7 @@ Welcome back, <?php echo $_SESSION["user"]["username"];?>
             <a href="?page=portfolio">Portfolio</a>
             <a href="?page=about">About Us</a>
             <a href="createnew.html">Create New Portfolio </a>
+            <a href="slideshow.php">View as Slideshow </a>
         </nav>
     </header> <br>
 
