@@ -4,7 +4,7 @@
 <header>
     <nav> <center>
         <a href="home.php">Home</a>
-        <a href="createnew.php">Back to Portfolio</a>
+        <a href="createnew.html">Back to Portfolio</a>
     </nav> </center> <br>
 </header>
 
