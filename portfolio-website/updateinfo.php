@@ -12,6 +12,9 @@ function view_item ($id) {
     $stmt = $db->prepare($query);
     $r = $stmt->execute(array(":id"=>$id));
     $results = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    echo var_export($results, true);
+
     return $results;
 }
 
@@ -20,6 +23,10 @@ function update_item ($id, $title, $bio) {
     $conn_string = "mysql:host=sql1.njit.edu;dbname=vbp42";
     $db = new PDO($conn_string, $username, $password);
     $query = "UPDATE Portfolio set title = :1, bio = :2 where id=:id";
+    
+    echo var_export($query);
+    echo var_export($id);
+
     $stmt = $db->prepare($query);
     $r = $stmt->execute(array(
         ":id"=>$id,
