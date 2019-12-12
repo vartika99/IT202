@@ -8,7 +8,7 @@ function view_item ($id) {
     $conn_string = "mysql:host=sql1.njit.edu;dbname=vbp42";
     $db = new PDO($conn_string, $username, $password);
     //lookup item by id
-    $query = "select id, title, bio, from Portfolio where id = :id";
+    $query = "select id, title, bio from Portfolio where id = :id";
     $stmt = $db->prepare($query);
     $r = $stmt->execute(array(":id"=>$id));
 
