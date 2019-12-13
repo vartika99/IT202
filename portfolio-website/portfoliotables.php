@@ -10,7 +10,6 @@ function get_portfolio($user_id) {
     $stmt->bindValue(":user_id", $user_id);
     $r = $stmt->execute();
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    echo var_export($result, true);
     return $result;
 }
 
