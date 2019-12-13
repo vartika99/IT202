@@ -11,13 +11,7 @@ function view_item ($id) {
     $query = "select id, title, bio from Portfolio where id = :id";
     $stmt = $db->prepare($query);
     $r = $stmt->execute(array(":id"=>$id));
-
-    echo var_export($stmt->errorInfo());
-
     $results = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    echo var_export($results, true);
-
     return $results;
 }
 
@@ -26,10 +20,6 @@ function update_item ($id, $title, $bio) {
     $conn_string = "mysql:host=sql1.njit.edu;dbname=vbp42";
     $db = new PDO($conn_string, $username, $password);
     $query = "UPDATE Portfolio set title = :1, bio = :2 where id=:id";
-    
-    echo var_export($query);
-    echo var_export($id);
-
     $stmt = $db->prepare($query);
     $r = $stmt->execute(array(
         ":id"=>$id,
@@ -57,7 +47,9 @@ function update_item ($id, $title, $bio) {
 	//we form was submitted update table
 	if(isset($_POST['submit_button'])){
 		if( update_item($_POST['id'], $_POST['title'], $_POST['bio'])) {
-            header("Location: home.php?id=" . $_POST['id']);
+            		header("Location: createnew.html?id=" . $_POST['id']);
+	    		echo var_export($_POST['title'],  true);
+            		echo var_export($_POST['bio'], true);
         }
         else {
             echo "error updating information";
