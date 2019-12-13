@@ -11,6 +11,7 @@ function view_item ($id) {
     $query = "select id, title, bio from Portfolio where id = :id";
     $stmt = $db->prepare($query);
     $r = $stmt->execute(array(":id"=>$id));
+    echo var_export($stmt->errorInfo());
     $results = $stmt->fetch(PDO::FETCH_ASSOC);
     return $results;
 }
