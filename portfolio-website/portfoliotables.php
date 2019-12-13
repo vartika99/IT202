@@ -22,7 +22,7 @@ function increment_visits($user_id) {
 
 <?php
 //happens on page load
-increment_visits($_GET['user_id']);
+//increment_visits($_GET['user_id']);
 ?>
 <?php $results = get_portfolio($_GET['user_id']);
     if($results):?>
