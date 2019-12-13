@@ -48,8 +48,6 @@ function update_item ($id, $title, $bio) {
 	if(isset($_POST['submit_button'])){
 		if( update_item($_POST['id'], $_POST['title'], $_POST['bio'])) {
             		header("Location: createnew.html?id=" . $_POST['id']);
-	    		echo var_export($_POST['title'],  true);
-            		echo var_export($_POST['bio'], true);
         }
         else {
             echo "error updating information";
