@@ -9,8 +9,8 @@
 </header>
 
 <body> <center>
-    <img class="slides" src="lany.jpg" style="width:45%">
-    <img class="slides" src="tree.jpg" style="width:45%">
+    <img class="slides" src="images/lany.jpg" style="width:45%">
+    <img class="slides" src="images/tree.jpg" style="width:45%">
 
     <button class="displayLeft" onclick="plusDivs(-1)">&#10094;</button>
     <button class="displayRight" onclick="plusDivs(+1)">&#10095;</button>

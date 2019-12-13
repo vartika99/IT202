@@ -43,15 +43,15 @@ Welcome back, <?php echo $_SESSION["user"]["username"];?>
 
 
     <div id="portfolio">
-        <center> <img src="alyssa.jpg" alt="alyssa" style="width:45%"> </center>
+        <center> <img src="images/alyssa.jpg" alt="alyssa" style="width:45%"> </center>
         <br>
-        <center> <img src="flower.jpg" alt="flower" style="width:45%"> </center>
+        <center> <img src="images/flower.jpg" alt="flower" style="width:45%"> </center>
         <br>
-        <center> <img src="beach.jpg" alt="beach" style="width:45%"> </center>
+        <center> <img src="images/beach.jpg" alt="beach" style="width:45%"> </center>
         <br>
-        <center> <img src="butterfly.jpg" alt="butterfly" style="width:45%"> </center>
+        <center> <img src="images/butterfly.jpg" alt="butterfly" style="width:45%"> </center>
         <br>
-        <center> <img src="self.jpg" alt="self portrait" style="width:45%"> </center>
+        <center> <img src="images/self.jpg" alt="self portrait" style="width:45%"> </center>
         <br>
         <h5> Pictures courtesy of Alyssa Noelle. </h5>
     </div>
