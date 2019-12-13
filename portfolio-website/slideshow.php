@@ -8,11 +8,11 @@
 </header>
 
 <body> <center>
-    <img class="slides" src="alyssa.jpg" style="width:30%">
-    <img class="slides" src="flower.jpg" style="width:45%">
-    <img class="slides" src="beach.jpg" style="width:45%">
-    <img class="slides" src="butterfly.jpg" style="width:30%">
-    <img class="slides" src="self.jpg" style="width:30%">
+    <img class="slides" src="images/alyssa.jpg" style="width:30%">
+    <img class="slides" src="images/flower.jpg" style="width:45%">
+    <img class="slides" src="images/beach.jpg" style="width:45%">
+    <img class="slides" src="images/butterfly.jpg" style="width:30%">
+    <img class="slides" src="images/self.jpg" style="width:30%">
 
     <button class="displayLeft" onclick="plusDivs(-1)">&#10094;</button>
     <button class="displayRight" onclick="plusDivs(+1)">&#10095;</button>
